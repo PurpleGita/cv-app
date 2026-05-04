@@ -1,19 +1,26 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from "next/image";
 import CRTEffect from 'vault66-crt-effect';
 import "vault66-crt-effect/dist/vault66-crt-effect.css";
 import TVScreen from './components/TVScreen';
+import Page1 from './components/page1';
+import Page2 from './components/page2';
+import Page4 from './components/page4';
+import Page3 from './components/page3';
 
 export default function Home() {
+  const [polaroidImage, setPolaroidImage] = useState('/Polaroid1.png');
+  const [currentPage, setCurrentPage] = useState('tvscreen');
+
   return (
-    <div className="relative w-full h-dvh overflow-hidden flex items-center justify-center p-2">
+    <div className="relative w-full h-screen overflow-hidden flex items-center justify-center p-2">
       <div
         className="relative w-full max-w-15xl max-h-[100vh]"
         style={{ aspectRatio: '1920 / 1012' }}
       >
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 z-0 overflow-hidden ">
           <div className="absolute inset-[10%] min-h-0 min-w-0">
             <CRTEffect 
               enabled={true}
@@ -33,19 +40,118 @@ export default function Home() {
               glitchIntensity={0.4}
               glitchSpeed={9}
             >
-
-              <TVScreen />
+              {currentPage === 'tvscreen' && <TVScreen />}
+              {currentPage === 'page1' && <Page1 />}
+              {currentPage === 'page2' && (
+                <Page2 setPolaroidImage={setPolaroidImage} />
+              )}
+              {currentPage === 'page3' && <Page3 />}
+              {currentPage === 'page4' && <Page4 />}
             </CRTEffect>
           </div>
         </div>
 
+
+
+        <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+          <div className="relative w-full h-full">
+            <Image
+              src="/TvSketchAgain.png"
+              alt="TV"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
+
         <Image
-          src="/TvSketchAgain.png"
-          alt="Background image yaaa"
+          src={polaroidImage}
+          alt="Polaroid image yaaa"
           fill
-          className="object-contain z-10"
+          className="object-contain z-10 pointer-events-none"
           priority
         />
+
+<div className="absolute inset-0 z-20 pointer-events-none">
+  <div className="relative w-full h-full">
+
+    {/* Button 1 */}
+    <button
+      className="absolute cursor-pointer pointer-events-auto -translate-x-1/2 -translate-y-1/2"
+      style={{ top: '32%', left: '86%', width: '6%', height: '11%' }}
+      onClick={() => {
+        setCurrentPage('page1');
+        setPolaroidImage('/Polaroid1.png');
+      }}
+    >
+      <Image
+        src="/button2.png"
+        alt="button1"
+        fill
+        draggable={false}
+        className="pointer-events-none"
+      />
+    </button>
+
+    {/* Button 2 */}
+    <button
+      className="absolute cursor-pointer pointer-events-auto -translate-x-1/2 -translate-y-1/2"
+      style={{ top: '45%', left: '86%', width: '6%', height: '11%' }}
+      onClick={() => {
+        setCurrentPage('page2');
+        setPolaroidImage('/Polaroid2.png');
+      }}
+    >
+      <Image
+        src="/button2.png"
+        alt="button2"
+        fill
+        draggable={false}
+        className="pointer-events-none"
+      />
+    </button>
+
+    {/* Button 3 */}
+    <button
+      className="absolute cursor-pointer pointer-events-auto -translate-x-1/2 -translate-y-1/2"
+      style={{ top: '58%', left: '86%', width: '6%', height: '11%' }}
+      onClick={() => {
+        setCurrentPage('page3');
+        setPolaroidImage('/Polaroid3.png');
+      }}
+    >
+      <Image
+        src="/button2.png"
+        alt="button3"
+        fill
+        draggable={false}
+        className="pointer-events-none"
+      />
+    </button>
+
+    {/* Button 4 */}
+    <button
+      className="absolute cursor-pointer pointer-events-auto -translate-x-1/2 -translate-y-1/2"
+      style={{ top: '71%', left: '86%', width: '6%', height: '11%' }}
+      onClick={() => {
+        setCurrentPage('page4');
+        setPolaroidImage('/Polaroid4.png');
+      }}
+    >
+      <Image
+        src="/button2.png"
+        alt="button4"
+        fill
+        draggable={false}
+        className="pointer-events-none"
+      />
+    </button>
+
+  </div>
+</div>
+
+
       </div>
     </div>
   );
