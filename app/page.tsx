@@ -9,11 +9,22 @@ import Page1 from './components/page1';
 import Page2 from './components/page2';
 import Page4 from './components/page4';
 import Page3 from './components/page3';
+import TVStatic from './components/TVStatic';
 
 export default function Home() {
   const [polaroidImage, setPolaroidImage] = useState('/Polaroid1.png');
   const [currentPage, setCurrentPage] = useState('tvscreen');
 
+  const navigateWithStatic = (nextPage:any, polaroid:any) => {
+  setCurrentPage('static');
+
+  setTimeout(() => {
+    setCurrentPage(nextPage);
+    setPolaroidImage(polaroid);
+  }, 300);
+};
+
+  
   return (
     <div className="relative w-full h-screen overflow-hidden flex items-center justify-center p-2">
       <div
@@ -47,6 +58,7 @@ export default function Home() {
               )}
               {currentPage === 'page3' && <Page3 />}
               {currentPage === 'page4' && <Page4 />}
+              {currentPage === 'static' && <TVStatic/>}
             </CRTEffect>
           </div>
         </div>
@@ -80,10 +92,7 @@ export default function Home() {
     <button
       className="absolute cursor-pointer pointer-events-auto -translate-x-1/2 -translate-y-1/2"
       style={{ top: '32%', left: '86%', width: '6%', height: '11%' }}
-      onClick={() => {
-        setCurrentPage('page1');
-        setPolaroidImage('/Polaroid1.png');
-      }}
+      onClick={() => navigateWithStatic('page1', '/Polaroid1.png')}
     >
       <Image
         src="/button2.png"
@@ -98,11 +107,8 @@ export default function Home() {
     <button
       className="absolute cursor-pointer pointer-events-auto -translate-x-1/2 -translate-y-1/2"
       style={{ top: '45%', left: '86%', width: '6%', height: '11%' }}
-      onClick={() => {
-        setCurrentPage('page2');
-        setPolaroidImage('/Polaroid2.png');
-      }}
-    >
+      onClick={() => navigateWithStatic('page2', '/PolaroidGithub.png')}
+      >
       <Image
         src="/button2.png"
         alt="button2"
@@ -116,10 +122,7 @@ export default function Home() {
     <button
       className="absolute cursor-pointer pointer-events-auto -translate-x-1/2 -translate-y-1/2"
       style={{ top: '58%', left: '86%', width: '6%', height: '11%' }}
-      onClick={() => {
-        setCurrentPage('page3');
-        setPolaroidImage('/Polaroid3.png');
-      }}
+      onClick={() => navigateWithStatic('page3', '/Polaroid3.png')}
     >
       <Image
         src="/button2.png"
@@ -134,10 +137,7 @@ export default function Home() {
     <button
       className="absolute cursor-pointer pointer-events-auto -translate-x-1/2 -translate-y-1/2"
       style={{ top: '71%', left: '86%', width: '6%', height: '11%' }}
-      onClick={() => {
-        setCurrentPage('page4');
-        setPolaroidImage('/Polaroid4.png');
-      }}
+      onClick={() => navigateWithStatic('page4', '/Polaroid4.png')}
     >
       <Image
         src="/button2.png"

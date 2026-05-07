@@ -3,16 +3,16 @@
 import { useState } from "react";
 
 export default function Page2({ setPolaroidImage }: { setPolaroidImage: (image: string) => void }) {
-    const [currentProject, setCurrentProject] = useState('Hover over the names to see some of the projects i have done');
-    
+    const [currentProject, setCurrentProject] = useState('Hover over the names to see some of the projects i have done. Click to view on github');
+    const [currentTitle, setCurrentTitle] = useState('What have i done?');
     
   return (
     <div className="w-full h-full relative">
       {/* Title */}
       <div className="absolute top-[15%] left-[20%]">
-        <p className="opacity-80 text-[2vw] font-['PixelifySans']">What have i done?</p>
+        <p className="opacity-80 text-[2vw] font-['PixelifySans']">{currentTitle}</p>
       </div>
-      <div className="absolute top-[20%] left-[20%] right-[17%]">
+      <div className="absolute top-[20%] left-[20%] right-[19%]">
         <p className="opacity-80 text-[1.5vw] font-['PixelifySans']">
             {currentProject}
         </p>
@@ -20,20 +20,88 @@ export default function Page2({ setPolaroidImage }: { setPolaroidImage: (image: 
 
       {/* Left side text blocks */}
       <div className="absolute top-[50%] left-[20%] ">
-        <p className="opacity-80 text-[1.5vw] font-['PixelifySans'] mb-4 cursor-pointer pointer-events-auto " 
+        <p className="opacity-80 text-[1.5vw] font-['PixelifySans'] mb-4 cursor-pointer pointer-events-auto hover:underline" 
               onMouseEnter={() => {
-                setCurrentProject('Mauve-Step, a turn based video game where you dodge the enemies attacks by matching a ryhtem by tapping your charcters, made in Unity, and connected to a react website displaying highscores via a selfmade API. Click to view youtube video demonstration.');
+                setCurrentProject('a turn based video game where you dodge the enemies attacks by matching a ryhtem by tapping your charcters, made in Unity, and connected to a react website displaying highscores via a selfmade ASP.NET API. Click to view youtube video demonstration.');
                 setPolaroidImage('/Polaroid1.png');
-         }}> 
+                setCurrentTitle('Mauve-Step');
+         }}
+         onClick={() => window.open('https://github.com/TempoTuneCorp/TempoTuneCorp.github.io', '_blank')}
+         > 
             
         Mauve-Step </p>
-        <p className="opacity-80 text-[1.5vw] font-['PixelifySans']">paragraf 2</p>
+        <p className="opacity-80 text-[1.5vw] font-['PixelifySans'] mb-4 cursor-pointer pointer-events-auto hover:underline"
+              onMouseEnter={() => {
+                setCurrentProject('a music app. Made in angular using a custom made ASP.NET API connected to a SQL database that fetches music data and login. Useres are able to like songs and view those songs on a diffrent playlist. Click to view github repository.');
+                setPolaroidImage('/Polaroid2.png');
+                setCurrentTitle('TempoTune');
+              }}
+              onClick={() => window.open('https://github.com/TempoTuneCorp/TempoTuneCorp.github.io', '_blank')}
+              >
+          TempoTune
+        </p>
+        <p className="opacity-80 text-[1.5vw] font-['PixelifySans'] mb-4 cursor-pointer pointer-events-auto hover:underline"
+              onMouseEnter={() => {
+                setCurrentProject('An Android/IOS app for plant care, made in React Native. The app allows users to create a profile for each of their plants, set watering reminders, and set picutures of the plants. Click to view github repository.');
+                setPolaroidImage('/Polaroid3.png');
+                setCurrentTitle('Plant APP');
+              }}
+              onClick={() => window.open('https://github.com/PurpleGita/PlantApp', '_blank')}
+              >
+          Plant APP
+        </p>
+        <p className="opacity-80 text-[1.5vw] font-['PixelifySans'] mb-4 cursor-pointer pointer-events-auto hover:underline" 
+              onMouseEnter={() => {
+                setCurrentProject('An android app that displays the hypothetical witch resturants menu and allows users to add items to their menu and make purchases, made in androidSDK. Click to view github repository.');
+                setPolaroidImage('/Polaroid4.png');
+                setCurrentTitle('FullMoonsAndMeals');
+              }}
+              onClick={() => { window.open('https://github.com/PurpleGita/AndroidSDKProject', '_blank');}}
+              >
+          FullMoonsAndMeals
+        </p>
+
       </div>
 
       {/* Right side text blocks */}
-      <div className="absolute top-[50%] right-[20%]">
-        <p className="opacity-80 text-[1.5vw] font-['PixelifySans'] mb-4">paragraf 3 <br></br> ssssssssssss</p>
-        <p className="opacity-80 text-[1.5vw] font-['PixelifySans']">paragraf 4 ssssssssssss</p>
+      <div className="absolute top-[50%] right-[30%]">
+                <p className="opacity-80 text-[1.5vw] font-['PixelifySans'] mb-4 cursor-pointer pointer-events-auto hover:underline" 
+              onMouseEnter={() => {
+                setCurrentProject('A massive project made in a group of 5 classmates. We made a quiestionare service that is to be used by NEXT teachers to asses students, and view their progress overtime. I worked on the graphs shown on the frontend and i worked on the API backend. Click to view github repository.');
+                setPolaroidImage('/Polaroid4.png');
+                setCurrentTitle('Next Project');
+              }}
+              onClick={() => window.open('https://github.com/LobaDK/Next-Project', '_blank')}
+              >
+
+          Next Project</p>
+        <p className="opacity-80 text-[1.5vw] font-['PixelifySans'] mb-4 cursor-pointer pointer-events-auto hover:underline"
+              onMouseEnter={() => {
+                setCurrentProject('A web app made in angular a cookie clicker clone but clicking pumpkins instead. Click to view github repository.');
+                setPolaroidImage('/Polaroid5.png');
+                setCurrentTitle('Pumpkin Clicker');
+              }}
+              onClick={() => window.open('https://github.com/PurpleGita/Pumpkin-Clicker', '_blank')}
+              >
+          Pumpkin Clicker</p>
+        <p className="opacity-80 text-[1.5vw] font-['PixelifySans'] mb-4 cursor-pointer pointer-events-auto hover:underline"
+              onMouseEnter={() => {
+                setCurrentProject('a test app for the Genshin Impact API, made in React. Click to view github repository.');
+                setPolaroidImage('/Polaroid6.png');
+                setCurrentTitle('Genshin API Test');
+              }}
+              onClick={() => window.open('https://github.com/PurpleGita/GenshinAPI---Android-Studio', '_blank')}
+              >
+          Genshin API Test</p>
+        <p className="opacity-80 text-[1.5vw] font-['PixelifySans'] mb-4 cursor-pointer pointer-events-auto hover:underline"
+              onMouseEnter={() => {
+                setCurrentProject('a web app for collecting purple items, made in React. Click to view github repository.');
+                setPolaroidImage('/Polaroid7.png');
+                setCurrentTitle('Purple-Collector');
+              }}
+              onClick={() => window.open('https://github.com/PurpleGita/Purple-Collector', '_blank')}
+              >
+          Purple-Collector</p>
       </div>
     </div>
   );
