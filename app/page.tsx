@@ -95,7 +95,7 @@ export default function Home() {
       onClick={() => navigateWithStatic('page1', '/Polaroid1.png')}
     >
       <Image
-        src="/button2.png"
+        src="/ProfileButton.png"
         alt="button1"
         fill
         draggable={false}
@@ -110,7 +110,7 @@ export default function Home() {
       onClick={() => navigateWithStatic('page2', '/PolaroidGithub.png')}
       >
       <Image
-        src="/button2.png"
+        src="/buttonGithub.png"
         alt="button2"
         fill
         draggable={false}
@@ -122,10 +122,10 @@ export default function Home() {
     <button
       className="absolute cursor-pointer pointer-events-auto -translate-x-1/2 -translate-y-1/2"
       style={{ top: '58%', left: '86%', width: '6%', height: '11%' }}
-      onClick={() => navigateWithStatic('page3', '/Polaroid3.png')}
+      onClick={() => navigateWithStatic('page3', '/SkillsPolaroid.png')}
     >
       <Image
-        src="/button2.png"
+        src="/brainIcon.png"
         alt="button3"
         fill
         draggable={false}
@@ -137,10 +137,10 @@ export default function Home() {
     <button
       className="absolute cursor-pointer pointer-events-auto -translate-x-1/2 -translate-y-1/2"
       style={{ top: '71%', left: '86%', width: '6%', height: '11%' }}
-      onClick={() => navigateWithStatic('page4', '/Polaroid4.png')}
+      onClick={() => navigateWithStatic('page4', '/GPTPolaroid.png')}
     >
       <Image
-        src="/button2.png"
+        src="/AIButton.png"
         alt="button4"
         fill
         draggable={false}
