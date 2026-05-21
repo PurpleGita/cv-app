@@ -12,7 +12,7 @@ import Page3 from './components/page3';
 import TVStatic from './components/TVStatic';
 
 export default function Home() {
-  const [polaroidImage, setPolaroidImage] = useState('/Polaroid1.png');
+  const [polaroidImage, setPolaroidImage] = useState('/PolaroidLuna1.png');
   const [currentPage, setCurrentPage] = useState('tvscreen');
 
   const navigateWithStatic = (nextPage:any, polaroid:any) => {
@@ -92,7 +92,7 @@ export default function Home() {
     <button
       className="absolute cursor-pointer pointer-events-auto -translate-x-1/2 -translate-y-1/2"
       style={{ top: '32%', left: '86%', width: '6%', height: '11%' }}
-      onClick={() => navigateWithStatic('page1', '/Polaroid1.png')}
+      onClick={() => navigateWithStatic('page1', '/PolaroidLuna2.png')}
     >
       <Image
         src="/ProfileButton.png"
